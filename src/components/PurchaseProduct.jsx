@@ -158,7 +158,7 @@ export default function PurchaseProduct() {
         buyer_tel: phoneNumber || "",
         buyer_addr: address || "",
         buyer_postcode: user.zipCode || "",
-        m_redirect_url: "/mypage", // 모바일에서는 결제 시, 페이지 주소가 바뀜. 따라서 결제 끝나고 돌아갈 주소 입력해야 함
+        m_redirect_url: `${window.location.origin}/mypage`, // 모바일에서는 결제 시, 페이지 주소가 바뀜. 따라서 결제 끝나고 돌아갈 주소 입력해야 함
       },
       async (rsp) => {
         // callback

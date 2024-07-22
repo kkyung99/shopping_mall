@@ -7,20 +7,18 @@ export default function ProductCard({
 }) {
   const router = useRouter();
   const onMoveDetailPage = () => {
-    router.push(
-      {
-        pathname: `/products/${id}`,
-        query: {
-          image,
-          title,
-          category,
-          price,
-          options,
-          content,
-          time,
-        },
+    router.push({
+      pathname: `/products/${id}`,
+      query: {
+        image,
+        title,
+        category,
+        price,
+        options,
+        content,
+        time,
       },
-    );
+    });
   };
 
   return (
