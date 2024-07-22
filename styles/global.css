@@ -6,3 +6,7 @@
   margin: 0px;
   box-sizing: border-box;
 }
+
+.slick-carousel {
+  font-family: "Arial", sans-serif;
+}

@@ -8,7 +8,6 @@ export async function uploadImage(file) {
     body: data,
   });
   const rfile = await res.json();
-  console.log(rfile.url);
 
   return rfile.url;
 }
