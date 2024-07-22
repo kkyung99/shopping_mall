@@ -188,11 +188,11 @@ export default function PurchaseProduct() {
               title: "주문이 완료되었습니다!",
               icon: "success",
               confirmButtonText: "확인",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = `${window.location.origin}/mypage`;
+              }
             });
-
-            if (result.isConfirmed) {
-              window.location.href = `${window.location.origin}/mypage`;
-            }
           } catch (error) {
             console.error("Firebase에 주문 데이터 저장 중 오류 발생:", error);
           }
