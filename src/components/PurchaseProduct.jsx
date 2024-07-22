@@ -191,7 +191,7 @@ export default function PurchaseProduct() {
             });
 
             if (result.isConfirmed) {
-              router.push("/mypage");
+              window.location.href = `${window.location.origin}/mypage`;
             }
           } catch (error) {
             console.error("Firebase에 주문 데이터 저장 중 오류 발생:", error);

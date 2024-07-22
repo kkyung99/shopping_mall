@@ -30,9 +30,5 @@ export default function ProtectedRoute({ children, checkAdmin }) {
     return <LoadingPage />;
   }
 
-  if (!user) {
-    return <LoadingPage />;
-  }
-
   return children;
 }
