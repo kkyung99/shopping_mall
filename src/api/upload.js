@@ -9,5 +9,7 @@ export async function uploadImage(file) {
   });
   const rfile = await res.json();
 
-  return rfile.url;
+  const httpsUrl = rfile.url.replace(/^http:\/\//i, "https://");
+
+  return httpsUrl;
 }
