@@ -51,7 +51,6 @@ export async function removeProduct(id) {
 export async function getCart(userId) {
   return get(ref(db, `carts/${userId}`)).then((snapshot) => {
     const items = snapshot.val() || {};
-    console.log(items);
     const products = [];
     for (const productId in items) {
       for (const option in items[productId]) {
@@ -71,7 +70,6 @@ export async function addCart(userId, product) {
   for (const productId in cartData) {
     for (const productOption in cartData[productId]) {
       const item = cartData[productId][productOption];
-      console.log(item);
       if (item.id === product.id && item.option === product.option) {
         existsData = item;
         break;
@@ -117,7 +115,6 @@ export async function getOrders(userId) {
     const items = snapshot.val() || {};
     let orders = Object.values(items);
     orders.sort((a, b) => b.time - a.time);
-    console.log(orders);
     return orders;
   });
 }
