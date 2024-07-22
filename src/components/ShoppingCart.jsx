@@ -44,7 +44,6 @@ export default function ShoppingCart() {
           cartTotalPrice: totalPrice,
         },
       },
-      "/products/purchase"
     );
   };
 
