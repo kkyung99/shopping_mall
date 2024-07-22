@@ -15,14 +15,16 @@ export default function ProtectedRoute({ children, checkAdmin }) {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    if (!loading) {
-      if (isInitialLoad) {
-        setIsInitialLoad(false);
-      } else if (!user) {
-        router.push("/").then(alert("권한 없음!"));
-      } else if (checkAdmin && !user.isAdmin) {
-        router.push("/").then(alert("권한 없음!"));
-      }
+    if (loading) {
+      return;
+    }
+
+    if (isInitialLoad) {
+      setIsInitialLoad(false);
+    } else if (!user) {
+      router.push("/").then(() => alert("권한 없음!"));
+    } else if (checkAdmin && !user.isAdmin) {
+      router.push("/").then(() => alert("권한 없음!"));
     }
   }, [loading, user, router, checkAdmin]);
 
