@@ -201,7 +201,6 @@ export default function ProductDetail() {
           buyNowTotalPrice: total,
         },
       },
-      "/products/purchase"
     );
 
     reset();

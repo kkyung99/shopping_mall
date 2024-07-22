@@ -20,7 +20,6 @@ export default function ProductCard({
           time,
         },
       },
-      `/products/${id}`
     );
   };
 
