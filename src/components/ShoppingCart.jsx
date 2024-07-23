@@ -36,15 +36,13 @@ export default function ShoppingCart() {
     }));
 
     // 구매 페이지로 이동
-    router.push(
-      {
-        pathname: "/products/purchase",
-        query: {
-          cartProducts: JSON.stringify(products), // JSON 형태로 전달
-          cartTotalPrice: totalPrice,
-        },
+    router.push({
+      pathname: "/products/purchase",
+      query: {
+        cartProducts: JSON.stringify(products), // JSON 형태로 전달
+        cartTotalPrice: totalPrice,
       },
-    );
+    });
   };
 
   return (

@@ -26,7 +26,7 @@ export default function ProtectedRoute({ children, checkAdmin }) {
     } else if (checkAdmin && !user.isAdmin) {
       router.push("/").then(() => alert("권한 없음!"));
     }
-  }, [loading, user, router, checkAdmin]);
+  }, [loading, user, router, checkAdmin, isInitialLoad]);
 
   if (loading || isInitialLoad) {
     return <LoadingPage />;

@@ -117,7 +117,6 @@ export default function PurchaseProduct() {
 
   const handleSubmit = async () => {
     if (!name || !phoneNumber || !zipCode || !address || !addressDetail) {
-      // alert("주문 정보를 모두 입력해주세요.");
       Swal.fire({
         title: "주문 정보를 모두 입력해주세요.",
         icon: "warning",
@@ -157,7 +156,7 @@ export default function PurchaseProduct() {
         buyer_name: user.displayName,
         buyer_tel: phoneNumber || "",
         buyer_addr: address || "",
-        buyer_postcode: user.zipCode || "",
+        buyer_postcode: zipCode || "",
         m_redirect_url: `${window.location.origin}/mypage`, // 모바일에서는 결제 시, 페이지 주소가 바뀜. 따라서 결제 끝나고 돌아갈 주소 입력해야 함
       },
       async (rsp) => {
@@ -172,6 +171,7 @@ export default function PurchaseProduct() {
             buyerEmail: rsp.buyer_email,
             buyerTel: rsp.buyer_tel,
             buyerAddr: rsp.buyer_addr,
+            buyerPostcode: rsp.buyer_postcode,
             addressDetail: addressDetail,
             paymentMethod: rsp.pay_method,
             impUid: rsp.imp_uid,
