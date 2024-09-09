@@ -8,6 +8,7 @@ import { FaTrash } from "react-icons/fa";
 import SelectedOptionCard from "./SelectedOptionCard";
 import useCart from "../hooks/useCart";
 import useProducts from "../hooks/useProducts";
+import Image from "next/image";
 
 export default function ProductDetail() {
   const router = useRouter();
@@ -193,15 +194,13 @@ export default function ProductDetail() {
     }));
 
     // 구매 페이지로 이동
-    router.push(
-      {
-        pathname: "/products/purchase",
-        query: {
-          products: JSON.stringify(products), // JSON 형태로 전달
-          buyNowTotalPrice: total,
-        },
+    router.push({
+      pathname: "/products/purchase",
+      query: {
+        products: JSON.stringify(products), // JSON 형태로 전달
+        buyNowTotalPrice: total,
       },
-    );
+    });
 
     reset();
   };
@@ -210,10 +209,12 @@ export default function ProductDetail() {
     <>
       <p className="mx-10 mt-4 text-gray-700">{`<${category}>`}</p>
       <div className="flex flex-wrap md:flex-row p-4">
-        <img
+        <Image
           key={image}
           src={image}
           alt={title}
+          width={500} // 적절한 기본값 설정 (w-full 또는 md:w-1/2에 따라 적당한 값)
+          height={500} // 적절한 기본값 설정
           className="w-full md:w-1/2 px-4 object-contain"
         />
         <div className="w-full md:w-1/2 flex flex-col px-4">

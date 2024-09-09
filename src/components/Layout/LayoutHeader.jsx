@@ -12,6 +12,7 @@ import { signInWithGoogle, logout } from "/src/api/fauth";
 import User from "../User";
 import { useAuthContext } from "/src/context/AuthContext";
 import useCart from "/src/hooks/useCart";
+import Image from "next/image";
 
 export default function LayoutHeader() {
   const [showNav, setShowNav] = useState(false);
@@ -27,10 +28,12 @@ export default function LayoutHeader() {
         <div className="flex items-center md:space-x-6 lg:space-x-10">
           <div className="font-semibold text-2xl">
             <Link href="/">
-              <img
+              <Image
                 src="/images/logo.png"
-                className="w-12 h-auto max-w-full shrink-0 justify-center items-center"
                 alt="Logo"
+                width={48}
+                height={48}
+                className="shrink-0 justify-center items-center"
               />
             </Link>
           </div>

@@ -8,6 +8,7 @@ import { Modal } from "antd";
 import useOrder from "../hooks/useOrder";
 import useCart from "../hooks/useCart";
 import Swal from "sweetalert2";
+import Image from "next/image";
 
 export default function PurchaseProduct() {
   const router = useRouter();
@@ -213,47 +214,53 @@ export default function PurchaseProduct() {
       {/* 바로 구매 / 장바구니 상품 정보 출력 */}
       {buyNowProducts
         ? buyNowProducts?.map((product, index) => (
-            <ul key={index} className="flex px-5 pt-3 mb-5 space-x-5">
+            <ul
+              key={index}
+              className="flex flex-col p-5 mb-5 justify-between items-center sm:flex-row"
+            >
               <div>
-                <img
+                <Image
                   src={product.image}
                   alt={product.title}
-                  className="w-28 md:w-32 rounded-lg shrink-0"
+                  width={128}
+                  height={128}
+                  className="w-48 md:w-32 rounded-lg shrink-0"
                 />
               </div>
-              <div className="flex justify-between items-center md:w-full">
-                <div className="flex-1 text-gray-800">
-                  <p className="">{product.title}</p>
-                  <p>{product.option}</p>
-                  <div>
-                    <span>{product.quantity}개 / </span>
-                    <span className="font-semibold">
-                      {(product.price * product.quantity).toLocaleString()}원
-                    </span>
-                  </div>
+              <div className="flex-1 px-5 pt-3 text-gray-800">
+                <p className="">{product.title}</p>
+                <p>{product.option}</p>
+                <div>
+                  <span>{product.quantity}개 / </span>
+                  <span className="font-semibold">
+                    {(product.price * product.quantity).toLocaleString()}원
+                  </span>
                 </div>
               </div>
             </ul>
           ))
         : purchaseCartProducts?.map((product, index) => (
-            <ul key={index} className="flex px-10 pt-3 mb-5 space-x-5">
+            <ul
+              key={index}
+              className="flex flex-col p-5 mb-5 justify-between items-center sm:flex-row"
+            >
               <div>
-                <img
+                <Image
                   src={product.image}
                   alt={product.title}
-                  className="w-28 md:w-32 rounded-lg shrink-0"
+                  width={128}
+                  height={128}
+                  className="w-48 md:w-32 rounded-lg shrink-0"
                 />
               </div>
-              <div className="flex justify-between items-center md:w-full">
-                <div className="flex-1 text-gray-800">
-                  <p className="">{product.title}</p>
-                  <p>{product.option}</p>
-                  <div>
-                    <span>{product.quantity}개 / </span>
-                    <span className="font-semibold">
-                      {(product.price * product.quantity).toLocaleString()}원
-                    </span>
-                  </div>
+              <div className="flex-1 px-5 pt-3 text-gray-800">
+                <p>{product.title}</p>
+                <p>{product.option}</p>
+                <div>
+                  <span>{product.quantity}개 / </span>
+                  <span className="font-semibold">
+                    {(product.price * product.quantity).toLocaleString()}원
+                  </span>
                 </div>
               </div>
             </ul>

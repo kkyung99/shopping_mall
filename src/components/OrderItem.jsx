@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function OrderItem({ order, index }) {
   const orderTime = new Date(order.time);
   // prettier-ignore
@@ -9,10 +11,12 @@ export default function OrderItem({ order, index }) {
     <div key={index} className="bg-gray-200 mb-4 p-4 rounded-lg">
       <p className="pl-2 pb-2 font-bold">결제완료</p>
       <div className="flex flex-col md:flex-row items-center">
-        <img
+        <Image
           src={Object.values(order.orderProducts)[0].image}
-          className="w-24 h-24 md:w-48 md:h-48 rounded-lg mb-4 md:mb-0 md:mr-4"
           alt="주문 상품 이미지"
+          width={192} // w-48에 해당하는 픽셀 값
+          height={192}
+          className="md:w-48 md:h-48 rounded-lg mb-4 md:mb-0 md:mr-4"
         />
         {/* prettier-ignore */}
         <div className="flex-1">

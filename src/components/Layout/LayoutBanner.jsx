@@ -3,6 +3,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 export default function LayoutBanner() {
   const slides = [1, 2];
@@ -23,7 +24,15 @@ export default function LayoutBanner() {
       <div className="relative">
         <Slider {...settings} className="mb-10">
           {slides.map((el, index) => (
-            <img src={`/images/banner${el}.png`} key={index} />
+            <Image
+              key={index}
+              src={`/images/banner${el}.png`}
+              alt={`Banner ${el}`}
+              width={1200}
+              height={500}
+              priority
+            />
+
           ))}
         </Slider>
       </div>

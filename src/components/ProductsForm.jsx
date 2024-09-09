@@ -5,6 +5,7 @@ import { uploadImage } from "../api/upload";
 import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 import useProducts from "../hooks/useProducts";
+import Image from "next/image";
 
 export default function ProductsForm() {
   const [product, setProduct] = useState({});
@@ -68,10 +69,12 @@ export default function ProductsForm() {
         상품 등록 페이지
       </div>
       {file && (
-        <img
+        <Image
           src={URL.createObjectURL(file)}
           alt="local file"
-          className="w-80 mx-auto rounded-lg"
+          width={320} // w-80에 해당하는 픽셀 값
+          height={320}
+          className="mx-auto rounded-lg"
         />
       )}
       <form onSubmit={handleSubmit} className="flex flex-col px-12">

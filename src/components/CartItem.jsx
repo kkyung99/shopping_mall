@@ -2,6 +2,7 @@
 
 import { IoCloseOutline } from "react-icons/io5";
 import useCart from "../hooks/useCart";
+import Image from "next/image";
 
 export default function CartItem({ product }) {
   const { updateCartItem, removeCartItem } = useCart();
@@ -22,10 +23,12 @@ export default function CartItem({ product }) {
       className="flex flex-col md:flex-row justify-between items-center mb-5 my-5"
       key={product.id}
     >
-      <img
+      <Image
         src={product.image}
         alt={product.title}
-        className="w-40 rounded-lg"
+        width={160}
+        height={160}
+        className="rounded-lg"
       />
       <div className="flex flex-col md:flex-row md:flex-1 justify-between w-full md:pl-5">
         <div className="text-gray-800 flex flex-col items-start bg-gray-50 rounded p-5 mt-3 md:flex-row md:items-center md:justify-between w-full md:bg-transparent md:mt-0">

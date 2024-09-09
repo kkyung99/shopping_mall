@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function ProductCard({
   product: { id, image, title, category, price, options, content, time },
@@ -27,11 +28,14 @@ export default function ProductCard({
         key={id}
         className="rounded shadow-md overflow-hidden justify-center items-center"
       >
-        <div className="overflow-hidden">
-          <img
+        <div className="overflow-hidden w-full">
+          <Image
             src={image}
             alt={title}
-            className="transition-transform group-hover:scale-110 duration-500 w-full"
+            className="transition-transform group-hover:scale-110 duration-500"
+            width={500}
+            height={300}
+            style={{ width: "100%", height: "auto" }}
           />
         </div>
       </div>
