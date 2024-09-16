@@ -1,11 +1,22 @@
 import ProductsList from "../src/components/ProductsList";
 import LayoutBanner from "../src/components/Layout/LayoutBanner";
+import { getProduct } from "../src/api/fbase";
 
-export default function Main() {
+export async function getServerSideProps() {
+  const products = await getProduct();
+
+  return {
+    props: {
+      initialProducts: products,
+    },
+  };
+}
+
+export default function Main({ initialProducts }) {
   return (
     <>
       <LayoutBanner />
-      <ProductsList hideCategories={true} />
+      <ProductsList hideCategories={true} initialProducts={initialProducts} />
     </>
   );
 }

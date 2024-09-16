@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import useProducts from "../hooks/useProducts";
 
-export default function ProductsList({ hideCategories }) {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+export default function ProductsList({ hideCategories, initialProducts }) {
+  const [filteredProducts, setFilteredProducts] = useState(initialProducts || []);
   const [selectedCategory, setSelectedCategory] = useState("전체");
 
   const menuNav = ["전체", "아우터", "상의", "하의"];

@@ -3,7 +3,6 @@
 import useOrder from "../hooks/useOrder";
 import OrderItem from "./OrderItem";
 import { FaClipboardList } from "react-icons/fa";
-import { v4 as uuidv4 } from "uuid";
 
 export default function OrderList() {
   const {
@@ -16,7 +15,9 @@ export default function OrderList() {
         나의 주문 목록
       </p>
       {orders && orders.length > 0 ? (
-        orders.map((order) => <OrderItem key={uuidv4()} order={order} />)
+        orders.map((order) => (
+          <OrderItem key={order.orderData.orderId} order={order} />
+        ))
       ) : (
         <div className="flex justify-center items-center h-96">
           <FaClipboardList className="text-2xl text-gray-500" />
